@@ -1,7 +1,11 @@
 //const express = require('express');
 //const app = express();
 const mqtt = require('mqtt');
-const client = mqtt.connect('mqtt://10.10.3.183:1883');
+const options = {
+    username: 'admin',  // zadej své uživatelské jméno
+    password: 'elkoep'     // zadej své heslo
+};
+const client = mqtt.connect('mqtt://10.10.3.183:1883', options);
 
 client.on("connect", ()=>{
     console.log("STATUS: Connected to the MQTT server!");
