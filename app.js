@@ -1,7 +1,7 @@
 //const express = require('express');
 //const app = express();
 const mqtt = require('mqtt');
-const client = mqtt.connect('mqtt://10.10.3.183:1883');
+const client = mqtt.connect('mqtt://10.10.3.183');
 
 client.on("connect", ()=>{
     console.log("STATUS: Connected to the MQTT server!");
