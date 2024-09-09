@@ -9,11 +9,7 @@ const client = mqtt.connect('mqtt://10.10.3.183:1883', options);
 
 client.on("connect", ()=>{
     console.log("STATUS: Connected to the MQTT server!");
-    client.subscribe('test/testval', (err) => {
-        if (!err) {
-            client.publish("test/testval", "Hello mqtt");
-        }
-    })
+    client.subscribe('test/testval')
 })
 
 client.on("message", (topic, message) => {
