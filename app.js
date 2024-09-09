@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => { 
+app.get('/', (req, res) => {
+    console.log('Client connected'); 
     res.send('A simple Node App is '
         + 'running on this server') 
     res.end() 
