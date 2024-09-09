@@ -1,5 +1,5 @@
-//const express = require('express');
-//const app = express();
+const express = require('express');
+const app = express();
 const mqtt = require('mqtt');
 const options = {
     username: 'admin',  // zadej své uživatelské jméno
@@ -22,14 +22,14 @@ client.on('error', (error) => {
     client.end();
 });
 
-/*app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     console.log('Client connected'); 
     res.send('A simple Node App is '
         + 'running on this server') 
     res.end() 
-}) */
+}) 
 
-/*const PORT = process.env.PORT ||5000;
+const PORT = process.env.PORT ||5000;
 
 app.listen(PORT,console.log(
-  `Server started on port ${PORT}`));*/
+  `Server started on port ${PORT}`));
