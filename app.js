@@ -22,14 +22,6 @@ client.on('error', (error) => {
     client.end();
 });
 
-client.publish("test/testval", "Hello mqtt", (err) => {
-    if (err) {
-        console.error('Publish failed: ', err);
-    } else {
-        console.log('Message sent successfully');
-    }
-});
-
 /*app.get('/', (req, res) => {
     console.log('Client connected'); 
     res.send('A simple Node App is '
