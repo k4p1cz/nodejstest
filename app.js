@@ -7,23 +7,40 @@ const options = {
 };
 const client = mqtt.connect('mqtt://10.10.3.183:1883', options);
 
+var values = {};
+var error = false;
+var errorMessage = 'ERROR: ';
+
 client.on("connect", ()=>{
     console.log("STATUS: Connected to the MQTT server!");
-    client.subscribe('test/testval')
+    client.subscribe('test/#', (err) => {
+        if(!err){
+            error = true;
+            errorMessage += 'Cannot subscribe to the topic';
+        }
+    });
 })
 
 client.on("message", (topic, message) => {
-    console.log(message.toString());
+    values[topic] = message.toString();
     client.end();
 });
 
 client.on('error', (error) => {
     console.error('Connection failed: ', error);
+    error = true;
+    errorMessage += error;
     client.end();
 });
 
 app.get('/', (req, res) => {
-    res.send('Test');
+    let values = null;
+    for(let key in values){
+        if(values.hasOwnProperty(key)){
+            values += key + ' - ' + values;
+        }
+    }
+    res.send(values);
     res.end();
 }) 
 
