@@ -34,13 +34,17 @@ client.on('error', (error) => {
 });
 
 app.get('/', (req, res) => {
-    let values = null;
-    for(let key in values){
-        if(values.hasOwnProperty(key)){
-            values += key + ' - ' + values;
+    if(error){
+        res.send(errorMessage);
+    }else{
+        let values = null;
+        for(let key in values){
+            if(values.hasOwnProperty(key)){
+                values += key + ' - ' + values;
+            }
         }
+        res.send(values);
     }
-    res.send(values);
     res.end();
 }) 
 
