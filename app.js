@@ -14,7 +14,7 @@ var errorMessage = 'ERROR: ';
 client.on("connect", ()=>{
     console.log("STATUS: Connected to the MQTT server!");
     client.subscribe('test/testval', (err) => {
-        if(!err){
+        if(err){
             error = true;
             errorMessage += 'Cannot subscribe to the topic';
         }
