@@ -37,13 +37,14 @@ app.get('/', (req, res) => {
     if(error){
         res.send(errorMessage);
     }else{
-        let values = null;
+       /* let values = null;
         for(let key in values){
             if(values.hasOwnProperty(key)){
                 values += key + ' - ' + values;
             }
         }
-        res.send(values);
+        res.send(values);*/
+        res.json(values);
     }
     res.end();
 }) 
