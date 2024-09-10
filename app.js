@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const mqtt = require('mqtt');
 const options = {
-    username: 'admin',  // zadej své uživatelské jméno
-    password: 'elkoep'     // zadej své heslo
+    username: 'admin',
+    password: 'elkoep'
 };
 const client = mqtt.connect('mqtt://10.10.3.183:1883', options);
 
@@ -23,10 +23,8 @@ client.on('error', (error) => {
 });
 
 app.get('/', (req, res) => {
-    console.log('Client connected'); 
-    res.send('A simple Node App is '
-        + 'running on this server') 
-    res.end() 
+    res.send('Test');
+    res.end();
 }) 
 
 const PORT = process.env.PORT ||5000;
