@@ -23,7 +23,6 @@ client.on("connect", ()=>{
 
 client.on("message", (topic, message) => {
     values[topic] = message.toString();
-    client.end();
 });
 
 client.on('error', (error) => {
